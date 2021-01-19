@@ -1,13 +1,26 @@
 import React from "react";
 
+
 export default function RandomNumber()
 {
-    const number = [];
-    for( let i = 0; i < 10; i++)
+    const refreshPage = ()=>{
+        window.location.reload();  }
+
+    let numberArray = [];
+
+    for (let i = 0; i < 10; i++)
     {
         let myNum = Math.floor(Math.random() * 11)
-        number.push(<li> {myNum} </li>);
+        numberArray.push(<li> {myNum} </li>);
     }
 
-    return number;
+    return (
+        <div>
+            <ul>
+                {numberArray}
+            </ul>
+
+            <button onClick={refreshPage} type={"submit"}>Random</button>
+        </div>
+    );
 }
